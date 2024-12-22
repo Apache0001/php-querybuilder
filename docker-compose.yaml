@@ -1,0 +1,35 @@
+services:
+  app:
+    container_name: app
+    build:
+      context: .
+      dockerfile: ./src/Dockerfile
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql_querybuilder
+    networks:
+      - network_app_querybuilder
+      
+  mysql_querybuilder:
+    image: mysql
+    container_name: mysql_querybuilder
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 909012345
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 12345678
+      MYSQL_DATABASE: lumen
+    networks:
+      - network_app_querybuilder
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database/data:/var/lib/mysql
+networks:
+  network_app_querybuilder:
+    driver: bridge
+
+
