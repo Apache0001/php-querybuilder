@@ -19,6 +19,11 @@
         "phpstan/phpstan": "^1.12"
     },
     "scripts": {
-        "stcore": "php vendor/bin/phpstan analyse Core --level 9"
+        "stcore": "php vendor/bin/phpstan analyse Core --level 9",
+        "unit-core-builder"  : "php vendor/bin/phpunit tests/Unit/Core/QueryBuilder/SelectTest.php --color"
+        
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
     }
 }

@@ -3,7 +3,7 @@
 namespace Core\Database;
 
 /**
- * [ Class Connect ]
+ * [ Class Singleton Connect ]
  * 
  */
 class Connect
@@ -11,7 +11,7 @@ class Connect
     /** @var ?\PDO $instance */
     private static $instance = null;
 
-    /** @var array<int, int> $options */
+    /** @var array<int,int> $options */
     private static ?array $options = [
         \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ
     ];
