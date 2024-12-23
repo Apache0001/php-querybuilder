@@ -32,9 +32,7 @@ class Update
         }
 
         $this->sql = rtrim($this->sql, ',');
-
         $this->setExecute($data);
-
         return $this;
     }
 

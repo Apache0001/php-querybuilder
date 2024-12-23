@@ -11,6 +11,11 @@ class Create
 
     private array $execute = [];
 
+    /**
+     * create
+     * @param string $table
+     * @param array  $data
+     */
     public function create(
         string $table,
         array $data
@@ -22,7 +27,14 @@ class Create
         );
     }
 
-    private function prepareData(array $data)
+    /**
+     * prepareData
+     * @param array $data
+     * @return Create
+     */
+    private function prepareData(
+        array $data
+    ) : Create
     {
         $this->sql .= '('.implode(', ', array_keys($data)). ') values(';
         $this->sql .= ':'.(implode(', :', array_keys($data))).')';
@@ -30,8 +42,13 @@ class Create
         return $this;
     }
 
-    private function setExecute(array $data)
-    {
+    /**
+     * setExecute
+     * @param array $data
+     */
+    private function setExecute(
+        array $data
+    ) {
         $this->execute = $data;
     }
 }
