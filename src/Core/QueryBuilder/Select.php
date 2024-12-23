@@ -161,7 +161,7 @@ class Select
      * get
      * @return null|array
      */
-    public function get(): ?array
+    public function execute(): ?array
     {
         $con  = Connect::getInstance();
 
